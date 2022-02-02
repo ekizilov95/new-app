@@ -9,10 +9,16 @@ import './App.css';
 function App () {
 
     const employees = [
-        { name: "John", salary: "600", cookies: false },
-        { name: "Anna", salary: "800", cookies: false },
-        { name: "Alex", salary: "1000", cookies: true }
+        { name: "John", salary: "600", cookies: false, id: 1 },
+        { name: "Anna", salary: "800", cookies: false, id: 2 },
+        { name: "Anna", salary: "800", cookies: false, id: 2 },
+        { name: "Alex", salary: "1000", cookies: true, id: 3 }
     ]
+    
+    const onDelete = (id) => {
+        console.log(employees);
+        
+    }
 
    return (
        <div className="container">
@@ -21,7 +27,7 @@ function App () {
                 <SearchPanel/>
                 <EmployeesFilter/>
            </div>
-           <EmployeesList employees={employees}/>
+           <EmployeesList employees={employees} deleteItem={(i) => onDelete(i)} />
            <EmployeesAddForm/>
        </div>
    ) 

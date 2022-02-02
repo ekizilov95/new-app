@@ -1,8 +1,8 @@
 import EmployeeslistItem from '../employees-list-item/employeeslist-item';
 
-export default function EmployeesList({employees}) {
+export default function EmployeesList({employees, deleteItem}) {
     const elements = employees.map((item, i) => {
-        return <EmployeeslistItem key={i} {...item}/>
+        return <EmployeeslistItem key={i} {...item} onDelete={() => deleteItem(i)}/>
     });
 
     return (

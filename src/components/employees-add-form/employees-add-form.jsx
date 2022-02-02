@@ -6,7 +6,7 @@ export default class EmployeesAddForm extends Component {
         super(props)
         this.state = {
             name: '',
-            salary: 0
+            salary: ''
         }
     }
 
@@ -15,6 +15,8 @@ export default class EmployeesAddForm extends Component {
     }
 
     render() {
+        const { name, salary } = this.state;
+
         return (
             <div className="app-add-form">
                 <h3>Добавьте нового сотрудника</h3>
@@ -24,12 +26,14 @@ export default class EmployeesAddForm extends Component {
                         className="form-control new-post-label"
                         placeholder="Как его зовут?"
                         name="name"
+                        valur={name}
                         onChange={({target}) => this.onValueChange(target)}
                     />
                     <input type="number"
                         className="form-control new-post-label"
                         placeholder="З/П в $?" 
                         name="salary"
+                        value={salary}
                         onChange={({target}) => this.onValueChange(target)}
                     />
                     <button type="submit"
