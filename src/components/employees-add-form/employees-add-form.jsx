@@ -6,12 +6,19 @@ export default class EmployeesAddForm extends Component {
         super(props)
         this.state = {
             name: '',
-            salary: ''
+            salary: '',
+            cookies: false,
+            id: 5
         }
     }
 
     onValueChange(target) {
         this.setState({[target.name]: target.value });
+    }
+
+    addNewEmployer(e, state) {
+        e.preventDefault();
+        this.props.addEmployer(state);
     }
 
     render() {
@@ -20,7 +27,7 @@ export default class EmployeesAddForm extends Component {
         return (
             <div className="app-add-form">
                 <h3>Добавьте нового сотрудника</h3>
-                <form
+                <form onSubmit={(e) => this.addNewEmployer(e, this.state)}
                     className="add-form d-flex">
                     <input type="text"
                         className="form-control new-post-label"
